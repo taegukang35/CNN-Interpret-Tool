@@ -34,6 +34,7 @@ class obj:
         self.sx,self.sy = self.img.get_size()
     def show(self):
         screen.blit(self.img,(self.x,self.y))
+
 ## input object
 inp = obj()
 inp.put_img(file_path)
@@ -76,7 +77,7 @@ option.y = 300
 
 ##filter object
 filter = obj()
-filter.x = 414
+filter.x = 600
 filter.y = 450
 
 
@@ -192,6 +193,7 @@ while SB == 0:
     elif option_name == 'filter':
         if 'conv' in layer_name:
             filter.put_img('vgg16_filter/'+layer_name+'.png')
+            filter.change_size(500,500)
             filter.show()
             mode = myFont.render("Mode: Filter", True, (0, 0, 0))
     elif option_name == 'lime':
@@ -228,5 +230,4 @@ while SB == 0:
     vgg16_struc.show() #vgg16 출력
     # update
     pygame.display.flip()
-
 pygame.quit()
